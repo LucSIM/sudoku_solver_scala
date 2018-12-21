@@ -61,7 +61,7 @@ class Sudoku(size: Int = 0, hints_matrix: Array[Array[Int]]=Array(), sudoku_matr
     grid_size = sudoku_grid.length
     sub_grid_size = Math.sqrt(grid_size).toInt
 
-    if (size != 4 && size != 9 && size != 16) {
+    if (grid_size != 4 && grid_size != 9 && grid_size != 16) {
       print("Error: The grid size is not valid! Should be 4, 9 or 16.")
 
     }
@@ -76,7 +76,7 @@ class Sudoku(size: Int = 0, hints_matrix: Array[Array[Int]]=Array(), sudoku_matr
       }
     }
 
-    var hints =  Array.fill[Array[Int]](number_of_hint)(Array.fill[Int](3)(0))
+    hints =  Array.fill[Array[Int]](number_of_hint)(Array.fill[Int](3)(0))
     number_of_hint = 0
 
     for (i <- 0 until grid_size){
@@ -304,7 +304,7 @@ class Sudoku(size: Int = 0, hints_matrix: Array[Array[Int]]=Array(), sudoku_matr
 
 }
 
-
+/*
 // Sudoku 4*4 wrong
 var sudoku_solver_wrong = new Sudoku(4, Array(
   Array(0,0,1),
@@ -446,3 +446,22 @@ sudoku_solver3.check_sudoku()
 sudoku_solver3.solve_sudoku()
 sudoku_solver3.check_sudoku()
 sudoku_solver3.show_grid()
+**/
+
+// Sudoku 9*9
+var sudoku_solver_wrong_nico = new Sudoku(sudoku_matrix= Array(
+  Array(1,0,0,0,2,8,6,0,4),
+  Array(0,0,0,5,4,7,1,0,2),
+  Array(7,4,2,6,1,0,0,0,0),
+  Array(4,0,0,2,0,5,0,3,1),
+  Array(0,2,0,1,0,0,8,6,9),
+  Array(9,0,0,8,6,0,0,2,5),
+  Array(5,0,0,9,3,0,0,4,7),
+  Array(0,9,7,4,8,1,0,0,0),
+  Array(6,0,4,7,0,0,9,1,0),
+))
+sudoku_solver_wrong_nico.show_grid()
+sudoku_solver_wrong_nico.check_sudoku()
+sudoku_solver_wrong_nico.solve_sudoku()
+sudoku_solver_wrong_nico.check_sudoku()
+sudoku_solver_wrong_nico.show_grid()
