@@ -264,7 +264,6 @@ class Sudoku(size: Int = 0, hints_matrix: Array[Array[Int]]=Array(), sudoku_matr
 
   @tailrec
   final def solve_sudoku(x: Int = x_first_indice, y: Int = y_first_indice): Unit = {
-
     // Si la case du sudoku est vide (=0) on la met a 1
     if (sudoku_grid(x)(y)==0){ sudoku_grid(x)(y)=1; solve_sudoku(x, y)}
     // Si la derniere case du sudoku satisfait les contraintes
@@ -305,6 +304,7 @@ class Sudoku(size: Int = 0, hints_matrix: Array[Array[Int]]=Array(), sudoku_matr
 
 }
 
+
 // Sudoku 4*4 wrong
 var sudoku_solver_wrong = new Sudoku(4, Array(
   Array(0,0,1),
@@ -318,7 +318,7 @@ sudoku_solver_wrong.solve_sudoku()
 sudoku_solver_wrong.check_sudoku()
 sudoku_solver_wrong.show_grid()
 
-// Sudoku 4*4 wrong defines by the other way
+// Sudoku 4*4 wrong defined by the other way
 var sudoku_solver_wrong2 = new Sudoku(sudoku_matrix= Array(
   Array(1,2,3,0),
   Array(0,0,0,4),
@@ -331,7 +331,7 @@ sudoku_solver_wrong2.solve_sudoku()
 sudoku_solver_wrong2.check_sudoku()
 sudoku_solver_wrong2.show_grid()
 
-/*
+
 // Sudoku 4*4 complet
 var sudoku_solver0 = new Sudoku(4, Array(
   Array(0,0,1),
@@ -409,8 +409,7 @@ var sudoku_solver2 = new Sudoku(9, Array(
 ))
 sudoku_solver2.show_grid()
 sudoku_solver2.check_sudoku()
-//sudoku_solver2.solve_sudoku()
-sudoku_solver2.solve_sudoku2(sudoku_solver2.indices_grid_list.head(0),sudoku_solver2.indices_grid_list.head(1))
+sudoku_solver2.solve_sudoku()
 sudoku_solver2.check_sudoku()
 sudoku_solver2.show_grid()
 
@@ -445,7 +444,5 @@ var sudoku_solver3 = new Sudoku(9, Array(
 sudoku_solver3.show_grid()
 sudoku_solver3.check_sudoku()
 sudoku_solver3.solve_sudoku()
-//sudoku_solver3.solve_sudoku2(sudoku_solver3.indices_grid_list.head(0),sudoku_solver3.indices_grid_list.head(1))
 sudoku_solver3.check_sudoku()
 sudoku_solver3.show_grid()
-**/
